@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
@@ -46,7 +47,7 @@ export const Header = () => {
         <HeaderEl>
             <Container>
                 <Wrapper>
-                    <Title>В какой части мира?</Title>
+                    <Title>В какой части мира находится страна?</Title>
                     <ModeSwitcher onClick={toggleTheme}>
                         {theme === 'light' ? (
                             <IoMoonOutline size="14px" />
