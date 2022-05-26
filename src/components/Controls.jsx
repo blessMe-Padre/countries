@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { Search } from './Search';
@@ -27,6 +27,13 @@ const Wrapper = styled.div`
 export const Controls = ({ onSearch }) => {
     const [search, setSearch] = useState('');
     const [region, setRegion] = useState('');
+
+    useEffect(() => {
+        const regionValue = region?.value || '';
+        onSearch(search, regionValue);
+
+        // eslint-disable-next-line
+    }, [search, region]);
 
     return (
         <Wrapper>

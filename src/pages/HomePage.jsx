@@ -8,23 +8,45 @@ import { Card } from '../components/Card'
 import { Controls } from '../components/Controls'
 import { ALL_COUNTRIES } from '../config'
 
-export const HomePage = () => {
-    const [countries, setCountries] = useState([]);
+export const HomePage = ({ setCountries, countries }) => {
+    const [filtredCountries, setFilteredCountries] = useState(countries);
 
     const { push } = useHistory();
 
+    const handleSearch = (search, region) => {
+        let data = [...countries];
+
+        if (region) {
+            data = data.filter((country) => country.region.includes(region));
+        }
+
+        if (search) {
+            data = data.filter((country) =>
+                country.name.toLowerCase().includes(search.toLowerCase())
+            );
+        }
+
+        setFilteredCountries(data);
+    };
+
     useEffect(() => {
-        axios.get(ALL_COUNTRIES).then(
-            ({ data }) => setCountries(data)
-        )
+        if (!countries.length)
+            axios.get(ALL_COUNTRIES).then(
+                ({ data }) => setCountries(data)
+            )
     }, []);
+
+    useEffect(() => {
+        handleSearch();
+        // eslint-disable-next-line
+    }, [countries]);
 
     return (
         <>
-            <Controls />
+            <Controls onSearch={handleSearch} />
             <List>
                 {
-                    countries.map((country) => {
+                    filtredCountries.map((country) => {
                         const countryInfo = {
                             img: country.flags.png,
                             name: country.name,
