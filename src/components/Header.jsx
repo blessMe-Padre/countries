@@ -46,14 +46,14 @@ export const Header = () => {
         <HeaderEl>
             <Container>
                 <Wrapper>
-                    <Title>Where is the world?</Title>
+                    <Title>В какой части мира?</Title>
                     <ModeSwitcher onClick={toggleTheme}>
                         {theme === 'light' ? (
                             <IoMoonOutline size="14px" />
                         ) : (
                             <IoMoon size="14px" />
                         )}{' '}
-                        <span style={{ marginLeft: '0.75rem' }}>{theme} Theme</span>
+                        <span style={{ marginLeft: '0.75rem', textTransform: 'lowercase' }}>{theme} theme</span>
                     </ModeSwitcher>
                 </Wrapper>
             </Container>

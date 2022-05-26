@@ -32,7 +32,7 @@ export const Controls = ({ onSearch }) => {
             <Search search={search} setSearch={setSearch} />
             <CustomSelect
                 options={options}
-                placeholder="Filter by Region"
+                placeholder="Поиск по региону"
                 isClearable
                 isSearchable={false}
                 value={region}
