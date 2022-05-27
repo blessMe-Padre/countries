@@ -1,9 +1,15 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
+import { IoArrowBack } from 'react-icons/io5'
+
 
 export const Details = () => {
     const { name } = useParams();
+
     return (
-        <div>Details {name}</div>
+        <>
+            <Link to="/" className='backLink'><IoArrowBack /> Назад</Link>
+            <div>Details {name}</div>
+        </>
     )
 }

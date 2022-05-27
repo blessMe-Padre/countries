@@ -66,7 +66,7 @@ export const HomePage = ({ setCountries, countries }) => {
                         };
 
                         return (
-                            <Link key={country.name} to={`/country/${country.name}`}>
+                            <Link className='linkClass' key={country.name} to={`/country/${country.name}`}>
                                 <Card key={country.name} {...countryInfo} />
                             </Link>
                         )

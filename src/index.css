@@ -41,3 +41,24 @@ body {
   font-weight: var(--fw-light);
   background-color: var(--colors-bg);
 }
+
+.linkClass {
+  text-decoration: none;
+  color: inherit;
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  width: 120px;
+  padding: 15px 20px;
+  background-color: var(--colors-ui-base);
+  box-shadow: var(--shadow);
+  line-height: 1;
+  border-radius: var(--radii);
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+}
