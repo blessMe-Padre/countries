@@ -1,7 +1,9 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
-export const Details = ({ match }) => {
+export const Details = () => {
+    const { name } = useParams();
     return (
-        <div>Details {match.params.name}</div>
+        <div>Details {name}</div>
     )
 }

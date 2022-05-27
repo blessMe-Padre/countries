@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { Header } from './components/Header';
 import { Main } from './components/Main';
@@ -16,13 +16,11 @@ function App() {
     <>
       <Header />
       <Main>
-        <Switch>
-          <Route exact path="/">
-            <HomePage countries={countries} setCountries={setCountries} />
-          </Route>
-          <Route path="/country/:name" component={Details} />
-          <Route component={NotFound} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<HomePage countries={countries} setCountries={setCountries} />} />
+          <Route path="/country/:name" element={<Details />} />
+          <Route element={<NotFound />} />
+        </Routes>
       </Main>
     </>
   );
