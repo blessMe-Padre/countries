@@ -9,7 +9,7 @@ import { Controls } from '../components/Controls'
 import { ALL_COUNTRIES } from '../config'
 
 export const HomePage = ({ setCountries, countries }) => {
-    const [filtredCountries, setFilteredCountries] = useState(countries);
+    const [filteredCountries, setFilteredCountries] = useState(countries);
 
 
     const handleSearch = (search, region) => {
@@ -45,7 +45,7 @@ export const HomePage = ({ setCountries, countries }) => {
             <Controls onSearch={handleSearch} />
             <List>
                 {
-                    filtredCountries.map((country) => {
+                    filteredCountries.map((country) => {
                         const countryInfo = {
                             img: country.flags.png,
                             name: country.name,
