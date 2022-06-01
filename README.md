@@ -1,3 +1,10 @@
 SPA-проект с темизацией на React и styled-components
 
-React Select - Гибкий и красивый элемент управления Select Input для ReactJS с множественным выбором, автозаполнением, асинхронностью и возможностью создания.
+
+Кастомный селект с библиотекой React Select
+
+API rest countries.com
+
+Запросы к серверу с библиотекой Axios
+
+Использование react router dom 6 версии
