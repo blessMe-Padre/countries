@@ -49,20 +49,20 @@ export const InfoDescriptions = ({ props }) => {
             <List>
                 <ListItem>
                     <b>Домен:</b>{' '}
-                    {props.topLevelDomain.map((d) => (
-                        <span key={d}>{d}</span>
+                    {props.topLevelDomain.map((domain) => (
+                        <span key={domain}>{domain}</span>
                     ))}
                 </ListItem>
                 <ListItem>
                     <b>Валюта:</b>{' '}
-                    {props.currencies.map((c) => (
-                        <span key={c.code}>{c.name} </span>
+                    {props.currencies.map((currency) => (
+                        <span key={currency.code}>{currency.name} </span>
                     ))}
                 </ListItem>
                 <ListItem>
                     <b>Языки:</b>{' '}
-                    {props.languages.map((l) => (
-                        <span key={l.name}> {l.name}</span>
+                    {props.languages.map((language) => (
+                        <span key={language.name}> {language.name}</span>
                     ))}
                 </ListItem>
             </List>
