@@ -44,7 +44,10 @@ export const MetaTags = ({ borders }) => {
         if (borders.length)
             axios
                 .get(filterByCode(borders))
-                .then(({ data }) => setNeighbors(data.map((c) => c.name)));
+                .then(({ data }) => setNeighbors(data.map((c) => c.name)))
+                .catch(function (error) {
+                    console.log(error);
+                });
     }, [borders]);
 
     return (
