@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { filterByCode } from '../config';
 
 
@@ -69,7 +70,7 @@ const Meta = styled.div`
   }
   @media (min-width: 767px) {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
   }
 `;
 
@@ -158,15 +159,17 @@ export const Info = (props) => {
                     </List>
                 </ListGroup>
                 <Meta>
-                    <b>Border Countries</b>
+                    <b>Общая граница&nbsp;с&nbsp;: </b>
                     {!borders.length ? (
-                        <span>There is no border countries</span>
+                        <span>Нет общих границ</span>
                     ) : (
                         <TagGroup>
                             {neighbors.map((b) => (
-                                <Tag key={b}>
-                                    {b}
-                                </Tag>
+                                <Link className='linkClass' key={b} to={`/country/${b}`}>
+                                    <Tag >
+                                        {b}
+                                    </Tag>
+                                </Link>
                             ))}
                         </TagGroup>
                     )}
