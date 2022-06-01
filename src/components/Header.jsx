@@ -36,9 +36,9 @@ const ModeSwitcher = styled.div`
 `;
 
 export const Header = () => {
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState('светлая');
 
-    const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+    const toggleTheme = () => setTheme(theme === 'светлая' ? 'темная' : 'светлая');
 
     useEffect(() => {
         document.body.setAttribute('data-theme', theme);
@@ -50,12 +50,12 @@ export const Header = () => {
                 <Wrapper>
                     <Title>В какой части мира находится страна?</Title>
                     <ModeSwitcher onClick={toggleTheme}>
-                        {theme === 'light' ? (
+                        {theme === 'светлая' ? (
                             <IoMoonOutline size="14px" />
                         ) : (
                             <IoMoon size="14px" />
                         )}{' '}
-                        <span style={{ marginLeft: '0.75rem', textTransform: 'lowercase' }}>{theme} theme</span>
+                        <span style={{ marginLeft: '0.75rem', textTransform: 'lowercase' }}>{theme} тема</span>
                     </ModeSwitcher>
                 </Wrapper>
             </Container>

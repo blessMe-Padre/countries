@@ -18,7 +18,7 @@
   --radii: 0.5rem;
 }
 
-body[data-theme='dark'] {
+body[data-theme='темная'] {
   --colors-text: hsl(0, 0%, 100%);
   --colors-bg: hsl(207, 26%, 17%);
   --colors-ui-base: hsl(209, 23%, 22%);
@@ -26,7 +26,7 @@ body[data-theme='dark'] {
   --shadow: rgba(245, 245, 245, 0.2) 0 0 8px;
 }
 
-body[data-theme='light'] {
+body[data-theme='светлая'] {
   --colors-text: hsl(200, 15%, 8%);
   --colors-bg: hsl(0, 0%, 98%);
   --colors-ui-base: hsl(0, 0%, 100%);
