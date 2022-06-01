@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { filterByCode } from '../config';
+
+
 
 const Wrapper = styled.section`
   margin-top: 3rem;
@@ -53,6 +58,35 @@ const ListItem = styled.li`
   }
 `;
 
+const Meta = styled.div`
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  & > b {
+    font-weight: var(--fw-bold);
+  }
+  @media (min-width: 767px) {
+    flex-direction: row;
+    align-items: center;
+  }
+`;
+
+const TagGroup = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+`;
+
+const Tag = styled.span`
+  padding: 0 1rem;
+  background-color: var(--colors-ui-base);
+  box-shadow: var(--shadow);
+  line-height: 1.5;
+  cursor: pointer;
+`;
+
 export const Info = (props) => {
     const {
         name,
@@ -64,8 +98,19 @@ export const Info = (props) => {
         subregion,
         topLevelDomain,
         currencies = [],
+        borders = [],
         languages = [],
     } = props;
+
+    const [neighbors, setNeighbors] = useState([]);
+
+    useEffect(() => {
+        if (borders.length)
+            axios
+                .get(filterByCode(borders))
+                .then(({ data }) => setNeighbors(data.map((c) => c.name)));
+    }, [borders]);
+
 
     return (
         <Wrapper>
@@ -112,6 +157,20 @@ export const Info = (props) => {
                         </ListItem>
                     </List>
                 </ListGroup>
+                <Meta>
+                    <b>Border Countries</b>
+                    {!borders.length ? (
+                        <span>There is no border countries</span>
+                    ) : (
+                        <TagGroup>
+                            {neighbors.map((b) => (
+                                <Tag key={b}>
+                                    {b}
+                                </Tag>
+                            ))}
+                        </TagGroup>
+                    )}
+                </Meta>
             </div>
         </Wrapper>
     );
