@@ -41,19 +41,18 @@ export const MetaTags = ({ borders }) => {
     const [neighbors, setNeighbors] = useState([]);
 
     useEffect(() => {
-        if (borders.length)
+        if (borders)
             axios
                 .get(filterByCode(borders))
                 .then(({ data }) => setNeighbors(data.map((c) => c.name)))
                 .catch(function (error) {
-                    console.log(error);
                 });
     }, [borders]);
 
     return (
         <Meta>
             <b>Общая граница&nbsp;с&nbsp;: </b>
-            {!borders.length ? (
+            {!borders ? (
                 <span>Нет общих границ</span>
             ) : (
                 <TagGroup>
